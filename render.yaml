@@ -4,8 +4,8 @@ services:
     runtime: node
     rootDir: .
     plan: free
-    buildCommand: "npm install"
-    startCommand: "npm start"
+    buildCommand: "npm --prefix backend install"
+    startCommand: "npm --prefix backend start"
     autoDeploy: true
     envVars:
       - key: DATABASE_URL
