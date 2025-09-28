@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Restaurante – Órdenes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            margin-bottom: .5rem;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        form > div {
+            margin-bottom: .5rem;
+        }
+
+        input, textarea, button {
+            padding: .5rem;
+            font-size: 1rem;
+        }
+
+        .row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .orden {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #eee;
+            padding: .5rem .75rem;
+            border-radius: 6px;
+            margin-bottom: .5rem;
+        }
+
+        .pill {
+            padding: .15rem .5rem;
+            border-radius: 999px;
+            background: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurante – Órdenes</h1>
+    <p>Flujo: <code>pending → preparing → delivered</code></p>
+
+    <div id="auth" class="card">
+        <h2>Clientes</h2>
+        <div class="row">
+            <form id="formReg" class="card" style="flex:1">
+                <h3>Registro</h3>
+                <div><input id="regNombre" placeholder="Nombre" required /></div>
+                <div><input id="regEmail" type="email" placeholder="Email" required /></div>
+                <div><input id="regTel" placeholder="Teléfono" required /></div>
+                <button>Registrarme</button>
+                <p id="regMsg"></p>
+            </form>
+
+            <form id="formLogin" class="card" style="flex:1">
+                <h3>Login</h3>
+                <div><input id="logEmail" type="email" placeholder="Email" required /></div>
+                <div><input id="logTel" placeholder="Teléfono" required /></div>
+                <button>Entrar</button>
+                <p id="logMsg"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="app" class="card hidden">
+        <h2>Mis pedidos</h2>
+        <p>
+            Cliente: <strong id="cliNombre"></strong> · <span id="cliEmail"></span> · Tel: <span id="cliTel"></span> · ID: <code id="cliId"></code>
+            · <button id="btnLogout">Cerrar sesión</button>
+        </p>
+
+        <form id="formOrden" class="card">
+            <h3>Nueva orden</h3>
+            <div><input id="ordPlatillo" placeholder="Platillo" required /></div>
+            <div><textarea id="ordNotas" placeholder="Notas (opcional)"></textarea></div>
+            <button>Crear</button>
+            <p id="ordMsg"></p>
+        </form>
+
+        <div class="card">
+            <h3>Listado</h3>
+            <div id="ordenes"></div>
+            <p id="listMsg"></p>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

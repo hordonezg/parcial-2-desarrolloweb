@@ -1,0 +1,12 @@
+# Archivos temporales de Visual Studio / VSCode
+.vs/
+*.vsidx
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Entorno
+.env
